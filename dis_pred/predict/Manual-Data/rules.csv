@@ -1,0 +1,44 @@
+('abnormal_menstruation'),{'muscle_weakness', 'sweating', 'restlessness', 'excessive_hunger', 'mood_swings', 'fatigue', 'weight_loss', 'irritability', 'fast_heart_rate', 'diarrhoea'}
+('back_pain'),{'high_fever', 'red_spots_over_body', 'headache', 'pain_behind_the_eyes', 'joint_pain', 'fatigue', 'malaise', 'loss_of_appetite', 'chills', 'nausea', 'muscle_pain', 'vomiting', 'skin_rash'}
+('blood_in_sputum'),{'sweating', 'chest_pain', 'yellowing_of_eyes', 'high_fever', 'phlegm', 'breathlessness', 'swelled_lymph_nodes', 'mild_fever', 'weight_loss', 'cough', 'malaise', 'loss_of_appetite', 'chills', 'fatigue', 'vomiting'}
+('chills'),{'high_fever', 'fatigue', 'malaise', 'loss_of_appetite', 'vomiting'}
+('diarrhoea'),{'sweating', 'abnormal_menstruation', 'restlessness', 'excessive_hunger', 'mood_swings', 'fatigue', 'weight_loss', 'irritability', 'fast_heart_rate', 'muscle_weakness'}
+('fast_heart_rate'),{'sweating', 'abnormal_menstruation', 'restlessness', 'excessive_hunger', 'mood_swings', 'fatigue', 'weight_loss', 'irritability', 'muscle_weakness', 'diarrhoea'}
+('itching'),{'high_fever', 'red_spots_over_body', 'lethargy', 'headache', 'swelled_lymph_nodes', 'mild_fever', 'fatigue', 'malaise', 'loss_of_appetite', 'skin_rash'}
+('joint_pain'),{'high_fever', 'red_spots_over_body', 'headache', 'muscle_pain', 'pain_behind_the_eyes', 'back_pain', 'fatigue', 'loss_of_appetite', 'chills', 'nausea', 'malaise', 'vomiting', 'skin_rash'}
+('lethargy'),{'high_fever', 'red_spots_over_body', 'headache', 'itching', 'swelled_lymph_nodes', 'mild_fever', 'fatigue', 'malaise', 'loss_of_appetite', 'skin_rash'}
+('mild_fever'),{'high_fever', 'swelled_lymph_nodes', 'fatigue', 'malaise', 'loss_of_appetite'}
+('mood_swings'),{'sweating', 'fast_heart_rate', 'abnormal_menstruation', 'restlessness', 'excessive_hunger', 'fatigue', 'weight_loss', 'irritability', 'muscle_weakness', 'diarrhoea'}
+('muscle_pain'),{'high_fever', 'red_spots_over_body', 'headache', 'pain_behind_the_eyes', 'joint_pain', 'back_pain', 'fatigue', 'loss_of_appetite', 'chills', 'nausea', 'malaise', 'vomiting', 'skin_rash'}
+('muscle_weakness'),{'sweating', 'abnormal_menstruation', 'restlessness', 'excessive_hunger', 'mood_swings', 'fatigue', 'weight_loss', 'irritability', 'fast_heart_rate', 'diarrhoea'}
+('nausea'),{'high_fever', 'red_spots_over_body', 'headache', 'pain_behind_the_eyes', 'joint_pain', 'back_pain', 'fatigue', 'loss_of_appetite', 'chills', 'malaise', 'muscle_pain', 'vomiting', 'skin_rash'}
+('pain_behind_the_eyes'),{'high_fever', 'red_spots_over_body', 'headache', 'muscle_pain', 'joint_pain', 'back_pain', 'fatigue', 'loss_of_appetite', 'chills', 'nausea', 'malaise', 'vomiting', 'skin_rash'}
+('phlegm'),{'sweating', 'chest_pain', 'yellowing_of_eyes', 'high_fever', 'breathlessness', 'swelled_lymph_nodes', 'mild_fever', 'weight_loss', 'cough', 'malaise', 'loss_of_appetite', 'chills', 'fatigue', 'vomiting', 'blood_in_sputum'}
+('restlessness'),{'sweating', 'fast_heart_rate', 'abnormal_menstruation', 'excessive_hunger', 'mood_swings', 'fatigue', 'weight_loss', 'irritability', 'muscle_weakness', 'diarrhoea'}
+('swelled_lymph_nodes'),{'high_fever', 'mild_fever', 'fatigue', 'malaise', 'loss_of_appetite'}
+('yellowing_of_eyes'),{'sweating', 'chest_pain', 'high_fever', 'phlegm', 'breathlessness', 'swelled_lymph_nodes', 'mild_fever', 'weight_loss', 'cough', 'malaise', 'loss_of_appetite', 'chills', 'fatigue', 'vomiting', 'blood_in_sputum'}
+('malaise'),{'high_fever', 'fatigue', 'loss_of_appetite'}
+('red_spots_over_body'),{'high_fever', 'headache', 'fatigue', 'malaise', 'loss_of_appetite', 'skin_rash'}
+('excessive_hunger'),{'irritability'}
+('irritability'),{'excessive_hunger'}
+('abdominal_pain'),{'passage_of_gases', 'vomiting', 'internal_itching', 'loss_of_appetite', 'indigestion'}
+('acidity'),{'headache', 'irritability', 'excessive_hunger', 'blurred_and_distorted_vision', 'stiff_neck', 'visual_disturbances', 'indigestion', 'depression'}
+('blurred_and_distorted_vision'),{'acidity', 'headache', 'irritability', 'excessive_hunger', 'stiff_neck', 'visual_disturbances', 'indigestion', 'depression'}
+('depression'),{'acidity', 'headache', 'excessive_hunger', 'blurred_and_distorted_vision', 'stiff_neck', 'visual_disturbances', 'indigestion', 'irritability'}
+('family_history'),{'high_fever', 'breathlessness', 'cough', 'mucoid_sputum', 'fatigue'}
+('internal_itching'),{'abdominal_pain', 'passage_of_gases', 'indigestion', 'loss_of_appetite', 'vomiting'}
+('lack_of_concentration'),{'headache', 'chest_pain', 'loss_of_balance', 'dizziness'}
+('loss_of_balance'),{'headache', 'chest_pain', 'dizziness', 'lack_of_concentration'}
+('mucoid_sputum'),{'high_fever', 'family_history', 'breathlessness', 'cough', 'fatigue'}
+('passage_of_gases'),{'abdominal_pain', 'internal_itching', 'indigestion', 'loss_of_appetite', 'vomiting'}
+('stiff_neck'),{'acidity', 'headache', 'irritability', 'excessive_hunger', 'blurred_and_distorted_vision', 'visual_disturbances', 'indigestion', 'depression'}
+('visual_disturbances'),{'acidity', 'headache', 'irritability', 'excessive_hunger', 'blurred_and_distorted_vision', 'stiff_neck', 'indigestion', 'depression'}
+('bladder_discomfort'),{'continuous_feel_of_urine'}
+('blister'),{'yellow_crust_ooze', 'skin_rash', 'red_sore_around_nose'}
+('continuous_feel_of_urine'),{'bladder_discomfort'}
+('red_sore_around_nose'),{'blister', 'yellow_crust_ooze', 'skin_rash'}
+('weight_loss'),{'sweating', 'fatigue'}
+('yellow_crust_ooze'),{'blister', 'skin_rash', 'red_sore_around_nose'}
+('cough'),{'breathlessness', 'fatigue', 'high_fever'}
+('dizziness'),{'loss_of_balance', 'lack_of_concentration'}
+('skin_rash'),{'high_fever'}
