@@ -244,14 +244,15 @@ def predict_symptoms(request):
                 for i in range(1, len(row)):
                     values.append(row[i].strip().strip("{}'"))
                 rules_dict[key] = values
-        # print(rules_dict)
-        predicted_symptoms = set()
+        #print(rules_dict)
+        predicted_symptoms = list()
 
         for symptom in existing_symptoms:
-            for item in rules_dict[symptom]:
-                predicted_symptoms.add(item)
-        
-        print(predicted_symptoms)
+            predicted_symptoms.append(rules_dict[symptom])
+
+        intersection_symptoms = set(predicted_symptoms[0]).intersection(*predicted_symptoms)
+        print(intersection_symptoms)
+
 
     return JsonResponse({})
 
