@@ -227,6 +227,36 @@ def train_model(request):
 
 
 @csrf_exempt
+def predict_symptoms(request):
+    if request.method == "POST":
+        rules_dict = {}
+        # existing_symptoms = request.POST.get("symptoms") #existing symptoms from android
+        existing_symptoms = ["abnormal_menstruation", "back_pain", "blood_in_sputum"]
+        with open('predict/Manual-Data/rules.csv', mode='r') as csv_file:
+            csv_reader = csv.reader(csv_file)
+            line_count = 0
+            for row in csv_reader:
+                # if line_count < 3:
+                #     print(row)
+                # line_count += 1
+                key = row[0].strip("'()")
+                values = []
+                for i in range(1, len(row)):
+                    values.append(row[i].strip().strip("{}'"))
+                rules_dict[key] = values
+        # print(rules_dict)
+        predicted_symptoms = set()
+
+        for symptom in existing_symptoms:
+            for item in rules_dict[symptom]:
+                predicted_symptoms.add(item)
+        
+        print(predicted_symptoms)
+
+    return JsonResponse({})
+
+
+@csrf_exempt
 def predict_diseases(request):
 	if request.method == "POST":
 		# user = User.objects.filter(username =  request.POST.get("username"))[0]
@@ -238,6 +268,7 @@ def predict_diseases(request):
 		result = model.predict_proba(symptoms)
 		print(result)
 		return JsonResponse({"result": result})
+
 
 @csrf_exempt
 def add_user_details(request):
