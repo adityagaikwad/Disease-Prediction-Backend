@@ -20,6 +20,7 @@ import sys
 import time
 import csv
 import pprint
+import xlrd
 
 @csrf_exempt
 def login(request):
@@ -258,6 +259,54 @@ def predict_symptoms(request):
 
 
 @csrf_exempt
+def generate_prescription(request):
+    if request.method == "POST":
+        #user = User.objects.filter(username =  request.POST.get("username"))[0]
+        #disease_predicted = request.POST.get("symptoms") #edit using stringify
+        #intensity = request.POST.get("intensity")
+        #phase = request.POST.get("phase")
+
+        #weight = User.objects.get(user)
+        #age = User.objects.get(age)
+        #disease=disease_predicted
+
+        loc = ("predict/Manual-Data/Prescriptions.xlsx") 
+        disease="Dengue"
+        age=""
+        intensity="NA"
+        phase="Continuation"
+        weight=60
+        m=[]
+        wb = xlrd.open_workbook(loc) 
+        sheet = wb.sheet_by_index(0) 
+          
+        # For row 0 and column 0 
+        sheet.cell_value(0, 0) 
+
+        for i in range(1,sheet.nrows):
+            if((sheet.cell_value(i, 0)==disease) and (sheet.cell_value(i, 1)==age or sheet.cell_value(i, 1)=="NA") and (sheet.cell_value(i, 2)==intensity or sheet.cell_value(i, 2)=="NA") and (sheet.cell_value(i, 3)==phase or sheet.cell_value(i, 3)=="NA")):
+                if(sheet.cell_value(i, 4)==0):
+                    for j in range(5,sheet.ncols):
+                        if not(sheet.cell_value(i,j)=="-"):
+                            m.append(sheet.cell_value(i, j))
+                        else:
+                            break
+                else:
+                    for j in range(5,sheet.ncols):
+                        if not(sheet.cell_value(i,j)=="-"):
+                            if not(j%3==0):
+                                m.append(sheet.cell_value(i, j))
+                            else:
+                                m.append(weight*sheet.cell_value(i, j))
+                        else:
+                            break
+        print(m)
+        return JsonResponse({"result": m})
+    
+
+
+
+@csrf_exempt
 def predict_diseases(request):
 	if request.method == "POST":
 		# user = User.objects.filter(username =  request.POST.get("username"))[0]
@@ -266,9 +315,9 @@ def predict_diseases(request):
 		filename = 'predict/finalized_model.pkl'
 		# df = pd.DataFrame(symptoms)
 		model = joblib.load(filename)
-		result = model.predict_proba(symptoms)
-		print(result)
-		return JsonResponse({"result": result})
+		disease_predicted = model.predict(symptoms)
+		print(disease_predicted)
+		return JsonResponse({"result": disease_predicted})
 
 
 @csrf_exempt
