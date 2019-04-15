@@ -19,10 +19,10 @@ class User(models.Model):
 	username = models.CharField(max_length = 100, default = '', null = True)
 	password = models.CharField(max_length = 100, default = '', null = True)
 	new_user = models.IntegerField(default = 1)
-	height = models.IntegerField(default=1)
-	weight = models.IntegerField(default=1)
+	height = models.IntegerField(default=1,null = True)
+	weight = models.IntegerField(default=1,null = True)
 	blood_group = models.CharField(max_length = 100, default = '', null = True)
-	age = models.IntegerField(default=1)
+	age = models.IntegerField(default=1,null = True)
 	gender = models.CharField(max_length = 100, default = '', null = True)
 	
 #     def __str__(self):

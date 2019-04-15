@@ -29,14 +29,14 @@ def login(request):
 		password = request.POST.get("password")
 		# request.session["login"] = True
 		user = User.objects.filter(username=username)
-		# print("HIIII")
+		print(username)
 		if not user.exists():
 			user = User(username = username, password = password)
 			user.save()
 			return JsonResponse({"status":"user_created"})
 			# print(username)
 		else:
-			# print(user)
+			print(user)
 			if user[0].password != password:
 				return JsonResponse({"status":"wrong_password"})
 			return JsonResponse({"status":"success"})
@@ -232,7 +232,7 @@ def predict_symptoms(request):
     if request.method == "POST":
         rules_dict = {}
         # existing_symptoms = request.POST.get("symptoms") #existing symptoms from android
-        existing_symptoms = ["abnormal_menstruation", "back_pain", "blood_in_sputum"]
+        existing_symptoms = ["muscle_weakness","malaise","acidity"]
         with open('predict/Manual-Data/rules.csv', mode='r') as csv_file:
             csv_reader = csv.reader(csv_file)
             line_count = 0
@@ -255,7 +255,7 @@ def predict_symptoms(request):
         print(intersection_symptoms)
 
 
-    return JsonResponse({})
+    return JsonResponse({"result":intersection_symptoms})
 
 
 @csrf_exempt
@@ -304,8 +304,6 @@ def generate_prescription(request):
         return JsonResponse({"result": m})
     
 
-
-
 @csrf_exempt
 def predict_diseases(request):
 	if request.method == "POST":
@@ -322,25 +320,20 @@ def predict_diseases(request):
 
 @csrf_exempt
 def add_user_details(request):
-	if request.method == "POST":
-		username = request.POST.get("username")
-		user = User.objects.filter(username=username)
-		print(user)
-		if not user.exists():
-			return JsonResponse({"status":"error"})
+    if request.method == "POST":
+        username = request.POST.get("username")
+        user = User.objects.filter(username=username)
+        print(user)
+        if not user.exists():
+            return JsonResponse({"status":"error"})
+        else:
+            user=user[0]
+            user.height=request.POST.get("height")
+            user.weight = request.POST.get("weight")
+            user.age = request.POST.get("age")
+            user.gender = request.POST.get("gender")
+            user.new_user = 0
+            user.save()
+            return JsonResponse({"status":"success"})
 
-		else:
-			user = user[0]
-			user.height = request.POST.get("height")
-			user.weight = request.POST.get("weight")
-			user.blood_group = request.POST.get("blood_group")
-			user.age = request.POST.get("age")
-			user.gender = request.POST.get("gender")
-			user.new_user = 0
-			user.save()
-			return JsonResponse({"status":"success"})
-
-		return JsonResponse({"status":"error2"})
-
-	if request.method == "GET":
-		return HttpResponse("hi")
+        return JsonResponse({"status":"error2"})
