@@ -246,16 +246,16 @@ def predict_symptoms(request):
                     values.append(row[i].strip().strip("{}'"))
                 rules_dict[key] = values
         #print(rules_dict)
-        predicted_symptoms = list()
+        predicted_symptoms = set()
 
         for symptom in existing_symptoms:
-            predicted_symptoms.append(rules_dict[symptom])
+            if rules_dict[symptom]:
+                for item in rules_dict[symptom]:
+                    predicted_symptoms.add(item)
+            # predicted_symptoms.append(rules_dict[symptom])
 
-        intersection_symptoms = set(predicted_symptoms[0]).intersection(*predicted_symptoms)
-        print(intersection_symptoms)
 
-
-    return JsonResponse({"result":intersection_symptoms})
+    return JsonResponse({"result":predicted_symptoms})
 
 
 @csrf_exempt
